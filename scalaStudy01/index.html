@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<!--
+Copyright 2011 Google Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+Author: Eric Bidelman (ericbidelman@chromium.org)
+-->
+<html>
+<head>
+  <title>EffectiveJava part8</title>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <script src='slides.js'></script>
+  <link href="http://fonts.googleapis.com/css?family=Raleway:100" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|Droid+Sans+Mono&v2">
+</head>
+<body style="display: none">
+
+<section class='slides layout-regular'>
+
+  <article class="biglogo">
+    <script>
+      (function() {
+        var c = document.createElement('canvas');
+        var ctx = null;
+        try {
+          ctx = c.getContext('webgl');
+        } catch(e) { }
+        try {
+          ctx = ctx || c.getContext('experimental-webgl');
+        } catch(e) { }
+        if (!ctx) alert("No WebGL detected, live demos disabled!");
+      })();
+    </script>
+  </article>
+
+  <article id="title" class="title">
+    <div>
+      <h1>Effective Java 第八章</h1>
+      <h2 class="subtitle">Wataru Fukunaga</h2>
+      <h3 class="subtitle"><img style="height:60px; padding-left:70px;" src="images/ca_logo.png"></h3>
+    </div>
+  </article>
+
+  <article>
+    <h3>Who am I?</h3>
+    <p>Wataru Fukunaga</p>
+    <p><a href="http://twitter.com/wataru420">@wataru420</a> 
+      | <a href="http://ameblo.jp/wataru420">amebaId:wataru420</a>
+    <p>Cyberagent Application Engineer</p>
+    <br><br>
+    <p>Effective Java輪読会用の資料です。</p>
+    <br><br>
+    <p>Slides available at <a href="http://goo.gl/SVfmP">http://goo.gl/SVfmP</a></p>
+    <p>I use this: <a href="https://github.com/kig/BasicsOfThreeJS">github.com/kig/BasicsOfThreeJS</a></p>
+      
+  </article>
+
+  <article class="title">
+    <h2>Programming一般</h2>
+    <h3 class="subtitle">Effective Java 第八章(前半)</h3>
+  </article>
+
+  <article>
+    <h3>Agenda</h3>
+    <ul style="/*font-size:50%*/">
+      <li>ローカル変数のスコープを最小限にする</li>
+      <li>従来のforループよりfor-eachループを選ぶ</li>
+      <li>ライブラリーを知り、ライブラリーを使う</li>
+	  <li>正確な答えが必要ならば、floatとdoubleを避ける</li>
+      <li>ボクシングされた基本データより基本データ型を選ぶ</li>
+      <li>他の型が適切場な場所では、文字列を避ける</li>
+      <li>文字列結合のパフォーマンスに用心する</li>
+<!--
+      <li>インターフェースでオブジェクトを参照する</li>
+      <li>リフレクションよりインターフェースを選ぶ</li>
+      <li>ネイティブメソッドを注意して使用する</li>
+      <li>注意して最適化する</li>
+      <li>一般的に受け入れらている命名規則を守る</li>
+-->
+    </ul>
+  </article>
+
+  <article class="title">
+    <h2 style="font-size:130%">ローカル変数のスコープを最小限にする</h2>
+  </article>
+
+  <article>
+  <h3>What's happen?'</h3>
+    <br><br>
+    <p>スコープの範囲が広いとどうなる？</p>
+    <br><br>
+	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term45/Main.java">sample</a>.</p>
+  </article>
+
+  <article>
+  <h3>Wow!</h3>
+    <br><br>
+    <p style="font-size:200%">間違える!!</p>
+    <br><br>
+    <p>メソッドを小さくして焦点をはっきりさせよう。</p>
+	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term45/MainCorrect.java">sample</a>.</p>
+  </article>
+
+  <article class="title">
+    <h2 style="font-size:130%">従来のforループよりfor-eachループを選ぶ</h2>
+  </article>
+
+  <article>
+    <h3>What's wrong?</h3>
+    <div>
+    <p>間違いが見つけられるかな？</p>
+    <pre>
+
+enum Suit { CLUB, DIAMOND, HEART, SPADE };
+enum Rank { ACE, DEUCE, THREE, FOUR, FIVE, 
+	SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING};
+
+Collection<Suit> suits = Arrays.asList(Suit.values());
+Collection<Rank> ranks = Arrays.asList(Rank.values());
+
+for (Iterator<Suit> i = suits.iterator(); i.hasNext();)
+    for (Iterator<Rank> j = ranks.iterator(); j.hasNext();)
+        deck.add(new Card(i.next(), j.next()));
+	</pre>
+	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term46/Main.java">sample</a>.</p>
+    </div>
+  </article>
+
+  <article>
+    <h3>What's wrong? take2</h3>
+    <div>
+    <p>同じような間違い</p>
+    <pre>
+
+enum Face { ONE, TWO, THREE, FOUR, FIVE, SIX }}
+
+Collection<Face> faces = Arrays.asList(Face.values());
+		
+for (Iterator<Face> i = faces.iterator(); i.hasNext();)
+    for (Iterator<Face> j = faces.iterator(); j.hasNext();)
+        System.out.println(i.next() + " " + j.next());
+	</pre>
+	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term46/Main2.java">sample</a>.</p>
+    </div>
+  </article>
+
+  <article>
+    <h3>Simple</h3>
+    <div>
+    <br>
+		<p>for-eachを使えばこんなにシンプル</p>
+    <br>
+    <pre>
+
+for (Suit suit : suits)
+    for (Rank rank : ranks)
+        deck.add(new Card(suit, rank));
+	</pre>
+	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term46/MainCorrect.java">sample</a>.</p>
+    </div>
+  </article>
+
+  <article>
+    <h3>Iterable</h3>
+    <div>
+    <br>
+	<p>Iterableインターフェースを実装すれば、<br/>どんなオブジェクトでもfor-eachできる</p>
+    <br>
+    <pre>
+
+IterableSample sample = new IterableSample("これがIterableの力だ");
+		
+for (Character c : sample)
+    System.out.println(c);
+	</pre>
+	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term46/IterableMain.java">sample</a>.</p>
+    </div>
+  </article>
+
+  <article>
+    <h3>Disable case</h3>
+	<br>
+	<dl>
+		<dt>フィルタリング</dt>
+		<dd>特定の要素を削除するなど</dd>
+		<dt>変換</dt>
+		<dd>特定の要素、あるいは全部を変換する場合</dd>
+		<dt>並列イテレーション</dt>
+		<dd>複数のコレクションで並列にイテレートする場合</dd>
+	</dl>
+	<br>
+    <p>上述の場合は普通のforを使うしかないです。</p>
+  </article>
+
+  <article class="title">
+    <h2 style="font-size:130%">ライブラリーを知り、ライブラリーを使う</h2>
+  </article>
+
+  <article>
+    <h3>Random</h3>
+	<p>よく見かけるが、欠陥がある！</p>
+    <pre>
+
+private static final Random rnd = new Random();
+
+static int random(int n) {
+	return Math.abs(rnd.nextInt()) % n;
+}
+	</pre>
+    <ul class="build">
+    <li>nが2の小さな累乗だと、乱数は短い期間で繰り返される</li>
+    <li>nが2の累乗でなければ、乱数に偏りが発生する</li>
+    <li>まれに指定された範囲外の数字を返してしまう</li>
+    </ul>
+	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term47/Main.java">sample</a>.</p>
+  </article>
+
+  <article>
+    <h3>Random</h3>
+	<br>
+	<p>こっちを使いましょう</p>
+    <pre>
+
+Random.nextInt(n)
+	</pre>
+    <ul class="build">
+    <p>標準ライブラリーを使用することで、それを書いた専門家の知識と、それをあなたよりも前に使用した人々の経験を利用することになります。</p>
+    </ul>
+  </article>
+
+  <article>
+    <h3>Check it out!</h3>
+	<ul>
+	<li>WebSite</li>
+	<div> &rarr; <a href="http://www.oracle.com/technetwork/java/javase/features-141434.html" target="blank">Java6 feat</a><br/><br/></div>
+	<li>Library</li>
+    <div> &rarr; java.lang</div>
+    <div> &rarr; java.util</div>
+	<div> &rarr; java.io<br/><br/></div>
+	<li>特に</li>
+    <div> &rarr; java.utilのコレクション</div>
+    <div> &rarr; java.util.concurrent</div>
+    </ul>
+  </article>
+
+  <article class="title">
+  <h2 style="font-size:130%">正確な答えが必要ならば、<br/>floatとdoubleを避ける</h2>
+  </article>
+
+  <article>
+    <h3>Binary floating-point arithmetic</h3>
+	<br>
+	<p>表示はどうなるでしょう？</p>
+    <pre>
+
+System.out.println(1.03 - .42);
+		
+System.out.println(1.00 - 9*.10);
+	</pre>
+    <ul class="build">
+    <p>0.6100000000000001</p>
+    <p>0.09999999999999998</p>
+    </ul>
+  </article>
+
+  <article>
+    <h3>Choise</h3>
+	<ul>
+	<li>BigDecimal</li>
+	<div>システムに小数点を把握させたく、基本データ型を使用しないという不便さをコストを気にしないならBigDecimal</div>
+	<div><br/></div>
+	<li>intかlong</li>
+	<div>
+		パフォーマンスが重要で、自分で小数点を把握できるならintかlongを使う
+		<div><br/></div>
+		<ul>
+			<li>数が9桁以内ならint</li>
+			<li>数が18桁以内ならlong</li>
+			<li>それ以上はBigDecimalを使うしかない</li>
+		</ul>
+	</div>
+	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term48/Main2Compare.java">sample</a>.</p>
+    </ul>
+  </article>
+
+  <article class="title">
+  <h2 style="font-size:130%">ボクシングされた基本データより<br/>基本データ型を選ぶ</h2>
+  </article>
+
+  <article>
+    <h3>Boxing</h3>
+	<p>自動ボクシング</p>
+    <pre>
+
+Integer i = 100;
+	</pre>
+	<p>自動アンボクシング</p>
+    <pre>
+
+int i = new Integer(100);
+	</pre>
+
+  </article>
+
+  <article>
+    <h3>What's wrong</h3>
+	<br>
+	<p>欠陥を見つけられますか？</p>
+	<br>
+    <pre>
+
+Comparator&lt;Integer&gt; naturalOrder = new Comparator&lt;Integer&gt;() {
+    public int compare(Integer first, Integer second) {
+        return first &lt; second ? -1 : (first == second ? 0 : 1);
+    }
+};
+	</pre>
+	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term49/Main.java">sample</a>.</p>
+  </article>
+
+  <article>
+    <h3>Think</h3>
+	<p>なぜnull pointer??</p>
+	<br>
+    <pre>
+
+static Integer i;
+
+public static void main(String[] args) {
+    if (i == 42)
+        System.out.println("Unbelievable");
+}
+	</pre>
+	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term49/Main2.java">sample</a>.</p>
+  </article>
+
+  <article>
+    <h3>Baaad performance!</h3>
+	<p>このプログラムは遅い</p>
+	<br>
+    <pre>
+
+public static void main(String[] args) {
+    Long sum = 0L;
+    for (long i = 0; i &lt; Integer.MAX_VALUE; i++) {
+        sum += i;
+    }
+    System.out.println(sum);
+}
+	</pre>
+	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term49/Main3.java">sample</a>.</p>
+  </article>
+
+  <article>
+    <h3>まとめ</h3>
+	<br>
+	<p>自動ボクシングはなるだけ避けよう</p>
+	<br>
+    <img style="padding-left:70%;" src="http://pds.exblog.jp/pds/1/201102/13/35/c0022635_21354138.jpg">
+  </article>
+
+  <article class="title">
+  <h2 style="font-size:130%">他の型が適切場な場所では、<br/>文字列を避ける</h2>
+  </article>
+
+  <article>
+    <h3>String is poor</h3>
+	<p>文字列は</p>
+	</pre>
+    <ul class="build">
+		<li>他の値型に対する代替としては貧弱です<br><br></li>
+		<li>列挙型に対する代替としては貧弱です<br><br></li>
+		<li>集合型に対する代替としては貧弱です<br><br></li>
+    <pre>
+
+//集合型として、文字列の不適切な仕様
+String compoundKey = className + "#" + i.next()
+	</pre>
+
+    </ul>
+  </article>
+
+  <article>
+    <h3>Bad ThreadLocal</h3>
+    <pre>
+
+public class ThreadLocal {
+    private ThreadLocal() { } //インスタンス化不可能
+    
+    //名前付き変数に対するカレントスレッドの値を設定する
+    public static void set(String key, Object value);
+    
+    //名前付き変数に対するカレントスレッドの値を返す
+    public static Object get(String key);
+}
+	</pre>
+	<p>Keyを偽造できたり、名前がダブっちゃう可能性がある</p>
+  </article>
+
+  <article>
+    <h3>Use capability</h3>
+    <pre>
+
+public class ThreadLocal {
+    private ThreadLocal() { } //インスタンス化不可能
+    
+    public static class Key {//文字列を偽造できないキー (ケーパビリティ)
+        Key();
+    }
+    
+    //一意の偽造できないキーを生成する
+    public static Key getKey() {
+        return new Key();
+    }
+    
+    public static void set(Key key, Object value);
+    public static Object get(Key key);
+}
+	</pre>
+  </article>
+
+  <article>
+    <h3>No need Static</h3>
+    <pre>
+
+public class ThreadLocal {
+    public ThreadLocal();
+    public void set(Object value);
+    public Object get();
+}
+	</pre>
+	<p>KeyはThread毎につけるのだから</p>
+	<p>Thread毎にインスタンス作れば解決</p>
+  </article>
+
+  <article>
+    <h3>Use generic</h3>
+    <pre>
+
+public class ThreadLocal<T> {
+    public ThreadLocal();
+    public void set(T value);
+    public T get();
+}
+	</pre>
+	<p>ジェネリック化すればさらに安全</p>
+	<p>取り出したときにキャストする必要がなくなる</p>
+  </article>
+
+  <article class="title">
+  <h2 style="font-size:130%">文字列結合のパフォーマンスに用心する</h2>
+  </article>
+
+  <article>
+    <h3>This is slow</h3>
+    <pre>
+
+public String statement() {
+    String result = "";
+    for (int i = 0; i &lt; numItem(i); i++)
+        result += lineForItem(i); //String結合
+    return result;
+}
+	</pre>
+	<p>結合演算子毎にインスタンスを生成するっぽい</p>
+  </article>
+
+  <article>
+    <h3>Use StringBuilder</h3>
+    <pre>
+
+public String statement() {
+    StringBuilder b = new StringBuilder(numItems() * LINE_WIDTH)
+    for (int i = 0; i &lt; numItem(i); i++)
+        b.append(lineForItem(i));
+    return b.toString();
+}
+	</pre>
+	<p>結合する数が多い場合はStringBuilderが圧倒的に速い</p>
+	<p>少ない場合はあまり意味ない場合もある</p>
+	<p>ThreadSafeにしたいときはStringBuffer</p>
+	<p>予め使う文字数で初期化しといたほうが速い</p>
+	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term51/Main3.java">sample</a>.</p>
+  </article>
+
+<!--
+  <article class="title">
+  <h2 style="font-size:130%">InterfaceでObjectを参照する</h2>
+  </article>
+
+
+  <article class="title">
+  <h2 style="font-size:130%">ReflectionよりInterfaceを選ぶ</h2>
+  </article>
+
+
+  <article class="title">
+  <h2 style="font-size:130%">ネイティブメソッドを注意して使用する</h2>
+  </article>
+
+
+  <article class="title">
+  <h2 style="font-size:130%">注意して最適化する</h2>
+  </article>
+
+
+  <article class="title">
+  <h2 style="font-size:130%">一般的に受け入れらている命名規則を守る</h2>
+  </article>
+  -->
+ 
+  <article>
+    <h3>The End</h3>
+    <p>Wataru Fukunaga</p>
+    <p><a href="http://twitter.com/wataru420">@wataru420</a> 
+      | <a href="http://ameblo.jp/wataru420">amebaId:wataru420</a>
+    <br><br>
+    <p>Slides available at <a href="http://goo.gl/SVfmP">http://goo.gl/SVfmP</a></p>
+    <p>Repo at <a href="https://github.com/wataru420/EffectiveJava/tree/master/src/part8">github.com/wataru420/EffectiveJava</a></p>
+ 
+  </article>
+
+</section>
+<script type="text/javascript">
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-27158263-1']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+	 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	 })();
+
+</script>
+<!--[if IE]>
+<script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+<script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+
+</body>
+</html>
