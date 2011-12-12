@@ -18,7 +18,7 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
 -->
 <html>
 <head>
-  <title>EffectiveJava part8</title>
+  <title>Scala Study Part1</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Style-Type" content="text/css; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -49,7 +49,7 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
 
   <article id="title" class="title">
     <div>
-      <h1>Effective Java 第八章</h1>
+      <h1>CA Scala Study Part1</h1>
       <h2 class="subtitle">Wataru Fukunaga</h2>
       <h3 class="subtitle"><img style="height:60px; padding-left:70px;" src="images/ca_logo.png"></h3>
     </div>
@@ -62,7 +62,7 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
       | <a href="http://ameblo.jp/wataru420">amebaId:wataru420</a>
     <p>Cyberagent Application Engineer</p>
     <br><br>
-    <p>Effective Java輪読会用の資料です。</p>
+    <p>Scalaコップ本輪読会用の資料です。</p>
     <br><br>
     <p>Slides available at <a href="http://goo.gl/SVfmP">http://goo.gl/SVfmP</a></p>
     <p>I use this: <a href="https://github.com/kig/BasicsOfThreeJS">github.com/kig/BasicsOfThreeJS</a></p>
@@ -70,232 +70,497 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
   </article>
 
   <article class="title">
-    <h2>Programming一般</h2>
-    <h3 class="subtitle">Effective Java 第八章(前半)</h3>
+    <h2>コップ本輪読会</h2>
+    <h3 class="subtitle">第一章〜第三章まで</h3>
   </article>
 
   <article>
     <h3>Agenda</h3>
-    <ul style="/*font-size:50%*/">
-      <li>ローカル変数のスコープを最小限にする</li>
-      <li>従来のforループよりfor-eachループを選ぶ</li>
-      <li>ライブラリーを知り、ライブラリーを使う</li>
-	  <li>正確な答えが必要ならば、floatとdoubleを避ける</li>
-      <li>ボクシングされた基本データより基本データ型を選ぶ</li>
-      <li>他の型が適切場な場所では、文字列を避ける</li>
-      <li>文字列結合のパフォーマンスに用心する</li>
-<!--
-      <li>インターフェースでオブジェクトを参照する</li>
-      <li>リフレクションよりインターフェースを選ぶ</li>
-      <li>ネイティブメソッドを注意して使用する</li>
-      <li>注意して最適化する</li>
-      <li>一般的に受け入れらている命名規則を守る</li>
--->
+    <ul style="font-size:120%">
+      <li>第一章　スケーラブルな言語</li>
+      <li>第二章　Scalaプログラミングの第一歩</li>
+      <li>第三章　Scalaプログラミングの次の一歩</li>
+    </ul>
+  </article>
+
+  <article>
+    <h3>第一章スケーラブルな言語</h3>
+    <ul style="font-size:40%">
+	  <li>１．１．プログラマーとともに成長する言語</li>
+      <li>１．１．１新しい型を作れる言語</li>
+      <li>１．１．２新しい制御構造を作れる言語</li>
+      <li>１．２．Scalaがスケーラブルな理由</li>
+      <li>１．２．１Scalaはオブジェクト指向</li>
+      <li>１．２．２Scalaは関数型言語</li>
+      <li>１．３．Scalaを選ぶ理由</li>
+      <li>１．３．１互換性（Javaとの共存）</li>
+      <li>１．３．２簡潔性（Javaの半分以下のコード量）</li>
+      <li>１．３．３高水準（抽象度の高いコード、新しい制御構造を定義できる表現力）</li>
+      <li>１．３．４静的な型付け（簡潔性、柔軟性、検証可能性、安全性、ドキュメント性）</li>
+      <li>１．４．calaのさまざまなルーツ
+      <li>１．５．まとめ
     </ul>
   </article>
 
   <article class="title">
-    <h2 style="font-size:130%">ローカル変数のスコープを最小限にする</h2>
+    <h2>A Scalable Language</h2>
   </article>
 
   <article>
-  <h3>What's happen?'</h3>
+  <h3>A Scalable Language</h3>
+    <p>Scalaの名前の由来</p>
+    <p>ユーザーの求めに応じて成長できるよう設計</p>
+    <p>Javaプラットフォーム上で動くので間口も広い</p>
     <br><br>
-    <p>スコープの範囲が広いとどうなる？</p>
+	<p>Scalaはオブジェクト指向と関数型プログラミングの概念を、静的な型付けを行う言語にまとめ上げたものである。</p>
     <br><br>
-	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term45/Main.java">sample</a>.</p>
-  </article>
-
-  <article>
-  <h3>Wow!</h3>
-    <br><br>
-    <p style="font-size:200%">間違える!!</p>
-    <br><br>
-    <p>メソッドを小さくして焦点をはっきりさせよう。</p>
-	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term45/MainCorrect.java">sample</a>.</p>
+	<p>みんなでScalaを使えるかっこいいエンジニアになろう！！</p>
   </article>
 
   <article class="title">
-    <h2 style="font-size:130%">従来のforループよりfor-eachループを選ぶ</h2>
+    <h2 style="font-size:130%">プログラマーとともに成長する言語</h2>
   </article>
 
   <article>
-    <h3>What's wrong?</h3>
-    <div>
-    <p>間違いが見つけられるかな？</p>
+  <h3>about Map</h3>
     <pre>
 
-enum Suit { CLUB, DIAMOND, HEART, SPADE };
-enum Rank { ACE, DEUCE, THREE, FOUR, FIVE, 
-	SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING};
-
-Collection<Suit> suits = Arrays.asList(Suit.values());
-Collection<Rank> ranks = Arrays.asList(Rank.values());
-
-for (Iterator<Suit> i = suits.iterator(); i.hasNext();)
-    for (Iterator<Rank> j = ranks.iterator(); j.hasNext();)
-        deck.add(new Card(i.next(), j.next()));
+var capital = Map("US" -> "Washington", "France" -> "Paris")
+capital += ("Japan" -> "Tokyo")
+println(capital("France"))
 	</pre>
-	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term46/Main.java">sample</a>.</p>
-    </div>
+    <p>Perl、Python、Rubyなどのスクリプト言語のような感じ</p>
+    <br><br>
+    <ul class="build">
+    <p>連想マップは便利</p>
+    <p>でも、フリーサイズで誰でも着られるみたいなのは嫌だ</p>
+    </ul>
   </article>
 
   <article>
-    <h3>What's wrong? take2</h3>
-    <div>
-    <p>同じような間違い</p>
+  <h3>HashMap</h3>
+    <p>さっきのをHashMapに書き換えてみます</p>
     <pre>
 
-enum Face { ONE, TWO, THREE, FOUR, FIVE, SIX }}
+import scala.collection.imutable.HashMap
 
-Collection<Face> faces = Arrays.asList(Face.values());
-		
-for (Iterator<Face> i = faces.iterator(); i.hasNext();)
-    for (Iterator<Face> j = faces.iterator(); j.hasNext();)
-        System.out.println(i.next() + " " + j.next());
+var capital = HashMap("US" -> "Washington", "France" -> "Paris")
+capital += ("Japan" -> "Tokyo")
+println(capital("France"))
 	</pre>
-	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term46/Main2.java">sample</a>.</p>
-    </div>
+    <p>簡単ですね</p>
   </article>
 
   <article>
-    <h3>Simple</h3>
-    <div>
-    <br>
-		<p>for-eachを使えばこんなにシンプル</p>
-    <br>
+  <h3>TreeMap</h3>
+    <p>さっきのをTreeMapに書き換えてみます</p>
     <pre>
 
-for (Suit suit : suits)
-    for (Rank rank : ranks)
-        deck.add(new Card(suit, rank));
+import scala.collection.immutable.TreeMap
+
+var capital = TreeMap("US" -> "Washington", "France" -> "Paris")
+capital += ("Japan" -> "Tokyo")
+println(capital("France"))
 	</pre>
-	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term46/MainCorrect.java">sample</a>.</p>
-    </div>
+    <p>簡単ですね</p>
   </article>
 
   <article>
-    <h3>Iterable</h3>
-    <div>
-    <br>
-	<p>Iterableインターフェースを実装すれば、<br/>どんなオブジェクトでもfor-eachできる</p>
-    <br>
+  <h3>SynchronizedMap</h3>
+    <p>SynchronizedMapトレイトでスレッドセーフに</p>
     <pre>
 
-IterableSample sample = new IterableSample("これがIterableの力だ");
-		
-for (Character c : sample)
-    System.out.println(c);
-	</pre>
-	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term46/IterableMain.java">sample</a>.</p>
-    </div>
-  </article>
+import scala.collection.mutable.{ HashMap, SynchronizedMap }
 
-  <article>
-    <h3>Disable case</h3>
-	<br>
-	<dl>
-		<dt>フィルタリング</dt>
-		<dd>特定の要素を削除するなど</dd>
-		<dt>変換</dt>
-		<dd>特定の要素、あるいは全部を変換する場合</dd>
-		<dt>並列イテレーション</dt>
-		<dd>複数のコレクションで並列にイテレートする場合</dd>
-	</dl>
-	<br>
-    <p>上述の場合は普通のforを使うしかないです。</p>
+var capital = new HashMap[String,String] with 
+                             SynchronizedMap[String,String]
+capital += ("US" -> "Washington", "France" -> "Paris")
+capital += ("Japan" -> "Tokyo")
+println(capital("France"))
+	</pre>
+    <p>このようにScalaは柔軟で書きやすく、そして必要に応じて細かく修正していける</p>
   </article>
 
   <article class="title">
-    <h2 style="font-size:130%">ライブラリーを知り、ライブラリーを使う</h2>
+    <h2 style="font-size:130%">新しい型を作れる言語</h2>
   </article>
 
   <article>
-    <h3>Random</h3>
-	<p>よく見かけるが、欠陥がある！</p>
+    <h3>Type</h3>
+    <br>
+    <p>Scalaは型を簡単に作れる</p>
+    <p>Scalaは型を使った条件分岐ができる</p>
+    <p>Scalaは型に関する機能が豊富</p>
+    <p>型に積極的な意味をもたせられる</p>
+    <br><br>
+    <p>メソッドやメンバ変数を束ねるだけのものではない！</p>
+  </article>
+
+  <article>
+    <h3>BigInt</h3>
+    <br>
+    <p>javaのBigIntegerはint型とはだいぶ異なる</p>
+    <br><br>
+	<p>ScalaではこのBigIntegerをラップした<a href="http://harrah.github.com/browse/samples/library/scala/BigInt.scala.html" target="blank">BigIntクラス</a>がある</p>
+    <p>＊などの演算子があたかも予約語かのように使える</p>
+  </article>
+
+  <article>
+    <h3>Pattern Match</h3>
+    <br>
+	<p>Caseクラスとパターンマッチを使うと、<br>型に意味を持たせられる</p>
     <pre>
 
-private static final Random rnd = new Random();
+def eval(e: Expr): Int = e match {
+  case Number(x) => x
+  case Sum(l, r) => eval(l) + eval(r)
+}
+</pre>
+    <p>Scalaのパターンマッチはかなり強力</p>
+  </article>
 
-static int random(int n) {
-	return Math.abs(rnd.nextInt()) % n;
+  <article class="title">
+    <h2 style="font-size:130%">新しい制御構造を作れる言語</h2>
+  </article>
+
+  <article>
+    <h3>Actor</h3>
+    <pre>
+
+recipient ! msg
+
+val recipient = actor {
+  loop {
+    recive{
+      case Msg1 => … //Msg1の処理
+      case Msg2 => … //Msg2の処理
+      // …
+    }
+  }
 }
 	</pre>
-    <ul class="build">
-    <li>nが2の小さな累乗だと、乱数は短い期間で繰り返される</li>
-    <li>nが2の累乗でなければ、乱数に偏りが発生する</li>
-    <li>まれに指定された範囲外の数字を返してしまう</li>
-    </ul>
-	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term47/Main.java">sample</a>.</p>
+	<p>ScalaはErlangのアクターモデルを実装している</p>
   </article>
 
   <article>
-    <h3>Random</h3>
-	<br>
-	<p>こっちを使いましょう</p>
+    <h3>Actor</h3>
+  	<p>メッセージ送信（!）やactor、loop、receive</p>
+	<p>いずれも組み込み演算ではない</p>
+	<p>Scalaのアクターライブラリーで定義されている</p>
+    <br>
+	<p>Scalaの中で新しい言語を作ることすら可能</p>
+	<p>興味があったら<a href="http://d.hatena.ne.jp/nowokay/20111109#1320815540" target="blank">Scalaでパーサーを作ってみる</a>を見てね</p>
+  </article>
+
+  <article class="title">
+    <h2 style="font-size:130%">Scalaがスケーラブルな理由</h2>
+    <h3 class="subtitle" style="font-size:100%">またはオブジェクト指向と関数型プログラミングの融合</h3>
+  </article>
+
+  <article class="title">
+    <h2 style="font-size:130%">Scalaはオブジェクト指向</h2>
+  </article>
+
+  <article>
+    <h3>Java is OOP?</h3>
+    <br><br>
+    <p>Javaにはプリミティブ型がある。</p>
+    <br><br>
+	<p>これはリフレクションを複雑にするなど、<br>スケーラビリティを下げている。</p>
+    <br><br>
+    <p>純粋なオブジェクト指向じゃないよね</p>
+  </article>
+
+  <article>
+    <h3>Scala is Pure OOP</h3>
+    <br><br>
+    <p>Scalaは純粋なオブジェクト指向</p>
+	<pre>
+
+1 + 2
+    </pre>
+	<p>+ は演算子に見えるが、Intオブジェクトのメソッド</p>
+  </article>
+
+  <article>
+    <h3>Composition</h3>
+    <br>
+	<p>Scalaはオブジェクトの合成能力がすごい</p>
+    <br><br>
+	<p>Traitはメソッドとフィールドをカプセル化したもの。</p>
+	<p>Traitを使うとミックスインのような事が可能となる。</p>
+  </article>
+
+  <article class="title">
+    <h2 style="font-size:130%">Scalaは関数型言語</h2>
+  </article>
+
+  <article>
+    <h3>first class values</h3>
+	<h4>Scalaでは関数もリテラル</h4>
     <pre>
 
-Random.nextInt(n)
+//普通の関数
+def 関数名(引数:型, …) = 本体
+//関数リテラル
+(引数:型, …) => 本体
+
+//こんな風に使える
+args.foreach(arg => println(arg))
+    </pre>
+  </article>
+
+  <article>
+    <h3>Imutable</h3>
+	<h4>メソッドは副作用を持ってはいけない</h4>
+    <br><br>
+	<p>Scalaは完璧ではない</p>
+	<p>イミュータブルなデータ構造多く用意している</p>
+	<p>つまり副作用のないメソッドを容易に作れる</p>
+  </article>
+
+
+  <article class="title">
+    <h2 style="font-size:130%">Scalaを選ぶ理由</h2>
+  </article>
+
+  <article>
+    <h3>Compatibility</h3>
+	<h4>互換性（Javaとの共存）</h4>
+    <br><br>
+	<p>ScalaはJavaのライブラリーを多用している。</p>
+	<p>ScalaからJavaを使うために特別な構文などはない。</p>
+	<p>実際MyBatisとかもさくっと使えました。</p>
+  </article>
+
+  <article>
+    <h3>Elegant</h3>
+	<h4>簡潔性</h4>
+    <pre>
+
+//これはJava
+class MyClass {
+  private int index;
+  private String name;
+  public MyClass(int index, String name) {
+    this.index = index;
+    this.name = name;
+  }
+}
+    </pre>
+  </article>
+
+  <article>
+    <h3>Elegant</h3>
+	<h4>簡潔性（Javaの半分以下のコード量）</h4>
+	<br>
+	<pre>
+
+// Scalaならこれだけ
+class MyClass(index: Int, name: String)
+    </pre>
+	<p>行数が減れば入力が楽、そして理解する労力も減る？</p>
+  </article>
+
+  <article>
+    <h3>high-level programming language</h3>
+	<h4>高水準</h4>
+	<p>例えばStringの変数の中に大文字があるかどうかを知る関数</p>
+    <pre>
+
+// Java
+boolean nameHasUpperCase = false;
+for (int i = 0; i < name.length(); ++i) {
+    if (Character.isUpperCase(name.charAt(i))) {
+        nameHasUpperCase = true;
+        break;
+    }
+}
 	</pre>
+  </article>
+
+  <article>
+    <h3>high-level programming language</h3>
+	<h4>抽象度の高いコード、新しい制御構造を定義できる表現力</h4>
+    <pre>
+
+val nameHasUpperCase = name.exists(_.isUpperCase)
+	</pre>
+	<p>文字列をより高い水準の存在として扱い、<br>複雑さを緩和している。</p>
+	<p>Javaでも似たような制御構造を作ることは可能だが面倒。</p>
+	<p>関数リテラルはプログラムは短くてキレイなものとする。</p>
+  </article>
+
+  <article>
+    <h3>Static Typing</h3>
+	<h4>簡潔性</h4>
+	<p>静的型付け言語は一般的には冗長だと言われている</p>
+	<p>型を指定しないとかけない。</p>
+	<p>コーディング量が増える。</p>
+    <br><br>
     <ul class="build">
-    <p>標準ライブラリーを使用することで、それを書いた専門家の知識と、それをあなたよりも前に使用した人々の経験を利用することになります。</p>
+	<p>Scalaでは強力な型推論があるので簡潔に書ける。</p>
     </ul>
   </article>
 
   <article>
-    <h3>Check it out!</h3>
-	<ul>
-	<li>WebSite</li>
-	<div> &rarr; <a href="http://www.oracle.com/technetwork/java/javase/features-141434.html" target="blank">Java6 feat</a><br/><br/></div>
-	<li>Library</li>
-    <div> &rarr; java.lang</div>
-    <div> &rarr; java.util</div>
-	<div> &rarr; java.io<br/><br/></div>
-	<li>特に</li>
-    <div> &rarr; java.utilのコレクション</div>
-    <div> &rarr; java.util.concurrent</div>
+    <h3>Static Typing</h3>
+	<h4>柔軟性</h4>
+	<p>型が静的である事自体が制限になる。</p>
+	<p>将来の変化の足かせになる。</p>
+    <br><br>
+    <ul class="build">
+	<p>Scalaではパターンマッチングと強力な合成の力で<br>かなり柔軟に書ける。</p>
+    </ul>
+  </article>
+
+  <article>
+    <h3>Static Typing</h3>
+	<h4>検証可能性</h4>
+	<p>真偽値が整数に加算されていない</p>
+	<p>文字列の集合に文字列以外が追加されない</p>
+	<p>コンパイル時に検出可能</p>
+    <br><br>
+    <ul class="build">
+	<p>テストで証明できるのはエラーの存在だけ</p>
+	<p>エラーの不在ではない！</p>
+    </ul>
+  </article>
+
+  <article>
+    <h3>Static Typing</h3>
+	<h4>安全なリファクタリング</h4>
+	<p>コンパイル時に検出されるエラーがリファクタリング時のセーフティネットとなる。</p>
+    <br><br>
+    <ul class="build">
+	<p>影響範囲の特定が楽</p>
+    </ul>
+  </article>
+
+  <article>
+    <h3>Static Typing</h3>
+	<h4>ドキュメント性の向上</h4>
+    <pre>def f(x: String) = …)</pre>
+	<p>fの引数がStringでなければならないことがわかる。</p>
+	<p>ただ、これはやだ</p>
+    <pre>val x: HashMap[Int, String] = new HashMap[Int, String]()</pre>
+	<pre>
+val x = new HashMap[Int, String]()
+val x: Map[Int, String] = new HashMap()</pre>
+	<p>型推論してくれるScalaならこれでいい</p>
+  </article>
+
+  <article class="title">
+  <h2 style="font-size:130%">Scalaのさまざまなルーツ</h2>
+  </article>
+
+  <article>
+    <h3>Roots</h3>
+    <br>
+    <ul class="build">
+    <li>表面的なレベルではJavaとC#の構文を多く採用</li>
+    <li>徹底したオブジェクトモデルはSmalltalk、Ruby</li>
+    <li>普遍的なネストの考え方でAlgol、Sumula等</li>
+    <li>高階関数はHaskell等</li>
+    <li>アクターベースの並行処理でErlang</li>
+    <li>etc...</li>
     </ul>
   </article>
 
   <article class="title">
-  <h2 style="font-size:130%">正確な答えが必要ならば、<br/>floatとdoubleを避ける</h2>
+  <h2 style="font-size:130%">まとめ</h2>
   </article>
 
   <article>
-    <h3>Binary floating-point arithmetic</h3>
-	<br>
-	<p>表示はどうなるでしょう？</p>
-    <pre>
-
-System.out.println(1.03 - .42);
-		
-System.out.println(1.00 - 9*.10);
-	</pre>
+    <h3>We will love Scala</h3>
+    <br>
     <ul class="build">
-    <p>0.6100000000000001</p>
-    <p>0.09999999999999998</p>
+    <li>Scalaは色々便利そう</li>
+    <li>だけど、しっかり勉強しないと使えない</li>
+    <li>Javaからの移行だと、型システムと関数型が難しそう</li>
     </ul>
   </article>
 
+  <article class="title">
+  <h2 style="font-size:130%">Scalaプログラミングの第一歩</h2>
+  </article>
+
   <article>
-    <h3>Choise</h3>
-	<ul>
-	<li>BigDecimal</li>
-	<div>システムに小数点を把握させたく、基本データ型を使用しないという不便さをコストを気にしないならBigDecimal</div>
-	<div><br/></div>
-	<li>intかlong</li>
-	<div>
-		パフォーマンスが重要で、自分で小数点を把握できるならintかlongを使う
-		<div><br/></div>
-		<ul>
-			<li>数が9桁以内ならint</li>
-			<li>数が18桁以内ならlong</li>
-			<li>それ以上はBigDecimalを使うしかない</li>
-		</ul>
-	</div>
-	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term48/Main2Compare.java">sample</a>.</p>
+    <h3>Scalaプログラミング第一歩</h3>
+    <ul style="font-size:60%">
+	  <li>２．１［ステップ１］Scalaインタープリターの使い方を学ぶ</li>
+      <li>２．２［ステップ２］変数を定義する</li>
+      <li>２．３［ステップ３］関数を定義する</li>
+      <li>２．４［ステップ４］簡単なScalaスクリプトを書く</li>
+      <li>２．５［ステップ５］whileによるループ、ifによる分岐</li>
+      <li>２．６［ステップ６］foreachとforによる反復実行</li>
+      <li>２．７まとめ</li>
     </ul>
   </article>
+
+  <article class="title">
+  <h2 style="font-size:130%">Scalaインタープリターの使い方を学ぶ</h2>
+    <h3 class="subtitle">Step1</h3>
+  </article>
+
+  <article>
+    <h3>Step1</h3>
+	<pre>
+$scala
+
+scala> 1 + 2
+
+res0: Int = 3</pre>
+	<p>計算された値を参照する自動生成またはユーザー定義で作られた名前</p>
+	<p>コロンと式の型</p>
+	<p>等号</p>
+	<p>式評価の結果</p>
+  </article>
+
+  <article>
+    <h3>Step1</h3>
+	<p>res0は実際に使える</p>
+	<pre>
+scala> res0 * 3
+
+res1: Int = 9</pre>
+	<br>
+    <p>みんなの大好き「Hello world」</p>
+    <pre>
+scala> println("Hello, world!")
+
+Hello, world!</pre>
+  </article>
+
+  <article class="title">
+  <h2 style="font-size:130%">変数を定義する</h2>
+    <h3 class="subtitle">Step2</h3>
+  </article>
+
+  <article>
+    <h3>Step2</h3>
+	<p>res0は実際に使える</p>
+	<pre>
+scala> val msg = "Hello, world!"
+msg: java.lang.String = Hello, world!</pre>
+    <p>型を明示的に指定したいときは</p>
+	<pre>
+scala> val msg2: java.lang.String = "Hello, world!"
+msg2: java.lang.String = Hello, world!
+
+scala> val msg3: String = "Hello, world!"
+msg3: String = Hello, world!</pre>
+    <p>こんな風に使えます</p>
+	<pre>
+scala> println(msg)
+Hello, world!</pre>
+  </article>
+
+
+
+
+
+
 
   <article class="title">
   <h2 style="font-size:130%">ボクシングされた基本データより<br/>基本データ型を選ぶ</h2>
