@@ -57,7 +57,7 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
 
   <article>
     <h3>Who am I?</h3>
-    <p>Wataru Fukunaga</p>
+    <h4>Wataru Fukunaga</h4>
     <p><a href="http://twitter.com/wataru420">@wataru420</a> 
       | <a href="http://ameblo.jp/wataru420">amebaId:wataru420</a>
     <p>Cyberagent Application Engineer</p>
@@ -81,6 +81,12 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
       <li>第二章　Scalaプログラミングの第一歩</li>
       <li>第三章　Scalaプログラミングの次の一歩</li>
     </ul>
+    <br><br>
+    <ul class="build">
+	<p style="font-size:200%">コップが溢れる程</p>
+	<p style="font-size:200%">　　　　　Scalaを愛したい</p>
+    </ul>
+
   </article>
 
   <article>
@@ -97,7 +103,7 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
       <li>１．３．２簡潔性（Javaの半分以下のコード量）</li>
       <li>１．３．３高水準（抽象度の高いコード、新しい制御構造を定義できる表現力）</li>
       <li>１．３．４静的な型付け（簡潔性、柔軟性、検証可能性、安全性、ドキュメント性）</li>
-      <li>１．４．calaのさまざまなルーツ
+      <li>１．４．scalaのさまざまなルーツ
       <li>１．５．まとめ
     </ul>
   </article>
@@ -114,7 +120,9 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
     <br><br>
 	<p>Scalaはオブジェクト指向と関数型プログラミングの概念を、静的な型付けを行う言語にまとめ上げたものである。</p>
     <br><br>
+    <ul class="build">
 	<p>みんなでScalaを使えるかっこいいエンジニアになろう！！</p>
+    </ul>
   </article>
 
   <article class="title">
@@ -264,7 +272,7 @@ val recipient = actor {
   <article>
     <h3>Java is OOP?</h3>
     <br><br>
-    <p>Javaにはプリミティブ型がある。</p>
+    <h4>Javaにはプリミティブ型がある。</h4>
     <br><br>
 	<p>これはリフレクションを複雑にするなど、<br>スケーラビリティを下げている。</p>
     <br><br>
@@ -274,7 +282,7 @@ val recipient = actor {
   <article>
     <h3>Scala is Pure OOP</h3>
     <br><br>
-    <p>Scalaは純粋なオブジェクト指向</p>
+    <h4>Scalaは純粋なオブジェクト指向</h4>
 	<pre>
 
 1 + 2
@@ -285,7 +293,7 @@ val recipient = actor {
   <article>
     <h3>Composition</h3>
     <br>
-	<p>Scalaはオブジェクトの合成能力がすごい</p>
+	<h4>Scalaはオブジェクトの合成能力がすごい</h4>
     <br><br>
 	<p>Traitはメソッドとフィールドをカプセル化したもの。</p>
 	<p>Traitを使うとミックスインのような事が可能となる。</p>
@@ -393,7 +401,7 @@ val nameHasUpperCase = name.exists(_.isUpperCase)
 
   <article>
     <h3>Static Typing</h3>
-	<h4>簡潔性</h4>
+	<h4>簡潔性とか大丈夫なの？</h4>
 	<p>静的型付け言語は一般的には冗長だと言われている</p>
 	<p>型を指定しないとかけない。</p>
 	<p>コーディング量が増える。</p>
@@ -405,7 +413,7 @@ val nameHasUpperCase = name.exists(_.isUpperCase)
 
   <article>
     <h3>Static Typing</h3>
-	<h4>柔軟性</h4>
+	<h4>柔軟性とかないよね？</h4>
 	<p>型が静的である事自体が制限になる。</p>
 	<p>将来の変化の足かせになる。</p>
     <br><br>
@@ -440,7 +448,7 @@ val nameHasUpperCase = name.exists(_.isUpperCase)
   <article>
     <h3>Static Typing</h3>
 	<h4>ドキュメント性の向上</h4>
-    <pre>def f(x: String) = …)</pre>
+    <pre>def f(x: String) = …</pre>
 	<p>fの引数がStringでなければならないことがわかる。</p>
 	<p>ただ、これはやだ</p>
     <pre>val x: HashMap[Int, String] = new HashMap[Int, String]()</pre>
@@ -460,7 +468,7 @@ val x: Map[Int, String] = new HashMap()</pre>
     <ul class="build">
     <li>表面的なレベルではJavaとC#の構文を多く採用</li>
     <li>徹底したオブジェクトモデルはSmalltalk、Ruby</li>
-    <li>普遍的なネストの考え方でAlgol、Sumula等</li>
+    <li>普遍的なネストの考え方でAlgol、Simula等</li>
     <li>高階関数はHaskell等</li>
     <li>アクターベースの並行処理でErlang</li>
     <li>etc...</li>
@@ -479,6 +487,7 @@ val x: Map[Int, String] = new HashMap()</pre>
     <li>だけど、しっかり勉強しないと使えない</li>
     <li>Javaからの移行だと、型システムと関数型が難しそう</li>
     </ul>
+    <img style="padding-left:70%;" src="images/pile_of_books.jpg">
   </article>
 
   <article class="title">
@@ -486,7 +495,7 @@ val x: Map[Int, String] = new HashMap()</pre>
   </article>
 
   <article>
-    <h3>Scalaプログラミング第一歩</h3>
+    <h3>First Step</h3>
     <ul style="font-size:60%">
 	  <li>２．１［ステップ１］Scalaインタープリターの使い方を学ぶ</li>
       <li>２．２［ステップ２］変数を定義する</li>
@@ -496,6 +505,7 @@ val x: Map[Int, String] = new HashMap()</pre>
       <li>２．６［ステップ６］foreachとforによる反復実行</li>
       <li>２．７まとめ</li>
     </ul>
+    <img style="padding-left:70%;" src="images/first_step.jpg">
   </article>
 
   <article class="title">
@@ -556,238 +566,462 @@ scala> println(msg)
 Hello, world!</pre>
   </article>
 
+  <article>
+    <h3>Step2</h3>
+	<p>valは定数、Javaでいうfinal</p>
+	<pre>
+scala> msg = "Goodbye cruel world!"
+&lt;console>:8: error: reassignment to val
+       msg = "Goodbye cruel world!"</pre>
+    <p>varが変数</p>
+	<pre>
+scala> var greeting = "Hello, world!"
+greeting: java.lang.String = Hello, world!
 
-
-
-
-
-
-  <article class="title">
-  <h2 style="font-size:130%">ボクシングされた基本データより<br/>基本データ型を選ぶ</h2>
+scala> greeting = "Leave me alone, world!"
+greeting: java.lang.String = Leave me alone, world!</pre>
   </article>
 
   <article>
-    <h3>Boxing</h3>
-	<p>自動ボクシング</p>
-    <pre>
-
-Integer i = 100;
-	</pre>
-	<p>自動アンボクシング</p>
-    <pre>
-
-int i = new Integer(100);
-	</pre>
-
-  </article>
-
-  <article>
-    <h3>What's wrong</h3>
-	<br>
-	<p>欠陥を見つけられますか？</p>
-	<br>
-    <pre>
-
-Comparator&lt;Integer&gt; naturalOrder = new Comparator&lt;Integer&gt;() {
-    public int compare(Integer first, Integer second) {
-        return first &lt; second ? -1 : (first == second ? 0 : 1);
-    }
-};
-	</pre>
-	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term49/Main.java">sample</a>.</p>
-  </article>
-
-  <article>
-    <h3>Think</h3>
-	<p>なぜnull pointer??</p>
-	<br>
-    <pre>
-
-static Integer i;
-
-public static void main(String[] args) {
-    if (i == 42)
-        System.out.println("Unbelievable");
-}
-	</pre>
-	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term49/Main2.java">sample</a>.</p>
-  </article>
-
-  <article>
-    <h3>Baaad performance!</h3>
-	<p>このプログラムは遅い</p>
-	<br>
-    <pre>
-
-public static void main(String[] args) {
-    Long sum = 0L;
-    for (long i = 0; i &lt; Integer.MAX_VALUE; i++) {
-        sum += i;
-    }
-    System.out.println(sum);
-}
-	</pre>
-	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term49/Main3.java">sample</a>.</p>
-  </article>
-
-  <article>
-    <h3>まとめ</h3>
-	<br>
-	<p>自動ボクシングはなるだけ避けよう</p>
-	<br>
-    <img style="padding-left:70%;" src="http://pds.exblog.jp/pds/1/201102/13/35/c0022635_21354138.jpg">
+    <h3>Step2</h3>
+	<p>複数行にまたがる入力は、うまいことやってくれる</p>
+	<pre>
+scala> val multilLine =
+     |   "This is next line."
+multilLine: java.lang.String = This is next line.</pre>
+    <p>縦棒（|）が表示されて入力を続けられる。</p>
+    <p>間違えたら[Enter]２回</p>
+	<pre>
+scala> val oops =
+     |
+     |
+You typed two blank lines.  Starting a new command.</pre>
   </article>
 
   <article class="title">
-  <h2 style="font-size:130%">他の型が適切場な場所では、<br/>文字列を避ける</h2>
+  <h2 style="font-size:130%">関数を定義する</h2>
+    <h3 class="subtitle">Step3</h3>
   </article>
 
   <article>
-    <h3>String is poor</h3>
-	<p>文字列は</p>
-	</pre>
+    <h3>Step3</h3>
+	<h4>関数はdef</h4>
+	<pre>
+scala> def max(x: Int, y: Int): Int = {
+             if (x > y) x
+             else y
+           }
+max: (Int, Int)Int</pre>
+    <p>def 関数名(引数:型, …) = 本体)</p>
+    <p>関数が再帰的な場合などは結果型の指定が必要だが、今回は省略できる。</p>
+	<pre>
+scala> def max2(x: Int, y: Int) = if (x > y) x else y</pre>
+  </article>
+
+  <article>
+    <h3>Step3</h3>
+	<p>結果を返さない関数もある</p>
+	<pre>
+scala> def greet() = println("Hello, world!")
+greet: ()Unit</pre>
+    <p>Utin型はJavaのvoid型みたいなもの</p>
+    <p>終了は</p>
+	<pre>
+scala> :quit
+$</pre>
+  </article>
+
+  <article class="title">
+  <h2 style="font-size:130%">簡単なScalaスクリプトを書く</h2>
+    <h3 class="subtitle">Step4</h3>
+  </article>
+
+  <article>
+    <h3>Step4</h3>
+	<p>hello.scala</p>
+	<pre>println("Hello, world, from a script!")</pre>
+	<pre>$ scala hello.scala</pre>
+    <p>もちろん引数も渡せる。</p>
+    <p>helloarg.scala</p>
+	<pre>println("Hello, " + arg(0) + "!")</pre>
+	<pre>$ scala helloarg.scala planet</pre>
+  </article>
+
+  <article class="title">
+  <h2 style="font-size:130%">whileによるループ、ifによる分岐</h2>
+    <h3 class="subtitle">Step5</h3>
+  </article>
+
+  <article>
+    <h3>Step5</h3>
+	<h4>while</h4>
+    <p>printargs.scala</p>
+	<pre>
+var i = 0
+while (i < args.length) {
+  println(args(i))
+  i += 1
+}</pre>
+    <p>このプログラムはあまり良くないがとりあえずwhileの説明</p>
+  </article>
+
+  <article>
+    <h3>Step5</h3>
+	<h4>if</h4>
+    <p>echoargs.scala</p>
+	<pre>
+var i = 0
+while (i < args.length) {
+  if (i != 0)
+    print(" ")
+  println(args(i))
+  i += 1
+}
+println()</pre>
+    <p>このプログラムはあまり良くないがとりあえずwhileの説明</p>
+  </article>
+
+  <article class="title">
+  <h2 style="font-size:130%">foreachとforによる反復実行</h2>
+    <h3 class="subtitle">Step6</h3>
+  </article>
+
+  <article>
+    <h3>Step6</h3>
+	<h4>whileは命令形、イケてない</h4>
+    <p>foreachを使おう</p>
+	<pre>args.foreach(arg => println(arg))</pre>
+	<pre>args.foreach((arg: String) => println(arg))</pre>
+	<pre>arg.foreach(println)</pre>
+  </article>
+
+  <article>
+    <h3>Step6</h3>
+	<h4>for式もある</h4>
+	<pre>
+for (arg <- args)
+  println(arg)</pre>
+    <p>しかしfor式はこんなもんじゃない</p>
     <ul class="build">
-		<li>他の値型に対する代替としては貧弱です<br><br></li>
-		<li>列挙型に対する代替としては貧弱です<br><br></li>
-		<li>集合型に対する代替としては貧弱です<br><br></li>
-    <pre>
-
-//集合型として、文字列の不適切な仕様
-String compoundKey = className + "#" + i.next()
-	</pre>
-
+    <p>詳しくは7.3節と第23章で</p>
     </ul>
   </article>
 
-  <article>
-    <h3>Bad ThreadLocal</h3>
-    <pre>
-
-public class ThreadLocal {
-    private ThreadLocal() { } //インスタンス化不可能
-    
-    //名前付き変数に対するカレントスレッドの値を設定する
-    public static void set(String key, Object value);
-    
-    //名前付き変数に対するカレントスレッドの値を返す
-    public static Object get(String key);
-}
-	</pre>
-	<p>Keyを偽造できたり、名前がダブっちゃう可能性がある</p>
+  <article class="title">
+  <h2 style="font-size:130%">まとめ</h2>
   </article>
 
   <article>
-    <h3>Use capability</h3>
-    <pre>
+	<h4>Scala結構いけそうじゃね？</h4>
+    <br><br>
+    <br><br>
+    <img style="padding-left:50%;" src="images/tenshin.jpg">
+  </article>
 
-public class ThreadLocal {
-    private ThreadLocal() { } //インスタンス化不可能
-    
-    public static class Key {//文字列を偽造できないキー (ケーパビリティ)
-        Key();
-    }
-    
-    //一意の偽造できないキーを生成する
-    public static Key getKey() {
-        return new Key();
-    }
-    
-    public static void set(Key key, Object value);
-    public static Object get(Key key);
-}
-	</pre>
+  <article class="title">
+  <h2 style="font-size:130%">Scalaプログラミングの次の一歩</h2>
   </article>
 
   <article>
-    <h3>No need Static</h3>
-    <pre>
+    <h3>Next Step</h3>
+    <ul style="font-size:60%">
+	  <li>３．１［ステップ７］配列を型でパラメータ化する</li>
+      <li>３．２［ステップ８］リストを使う</li>
+      <li>３．３［ステップ９］タプルを使う</li>
+      <li>３．４［ステップ１０］集合とマップを使う</li>
+      <li>３．５［ステップ１１］関数型のスタイルを見分ける</li>
+      <li>３．６［ステップ１２］ファイルから行を読み出す</li>
+      <li>３．７まとめ</li>
+    </ul>
+    <img style="padding-left:70%;:" src="images/next_step.jpg">
+  </article>
 
-public class ThreadLocal {
-    public ThreadLocal();
-    public void set(Object value);
-    public Object get();
-}
-	</pre>
-	<p>KeyはThread毎につけるのだから</p>
-	<p>Thread毎にインスタンス作れば解決</p>
+  <article class="title">
+  <h2 style="font-size:130%">配列を型でパラメータ化する</h2>
+    <h3 class="subtitle">Step7</h3>
   </article>
 
   <article>
-    <h3>Use generic</h3>
-    <pre>
-
-public class ThreadLocal<T> {
-    public ThreadLocal();
-    public void set(T value);
-    public T get();
-}
-	</pre>
-	<p>ジェネリック化すればさらに安全</p>
-	<p>取り出したときにキャストする必要がなくなる</p>
-  </article>
-
-  <article class="title">
-  <h2 style="font-size:130%">文字列結合のパフォーマンスに用心する</h2>
+    <h3>Step7</h3>
+	<h4>パラメータ化とは、インスタンスの構成を設定すること</h4>
+    <p>Javaでいうジェネリクス</p>
+	<pre>
+val greetStrings = new Array[String](3)
+greetStrings(0) = "Hello"
+greetStrings(1) = ", "
+greetStrings(2) = "world¥n"
+for (i <- 0 to 2)
+  print(greetStrings(i))</pre>
   </article>
 
   <article>
-    <h3>This is slow</h3>
-    <pre>
-
-public String statement() {
-    String result = "";
-    for (int i = 0; i &lt; numItem(i); i++)
-        result += lineForItem(i); //String結合
-    return result;
-}
-	</pre>
-	<p>結合演算子毎にインスタンスを生成するっぽい</p>
+    <h3>Step7</h3>
+    <p>丁寧に書くと</p>
+	<pre>val greetStrings: Array[String]= new Array[String](3)</pre>
+	<pre>greetStrings(0)</pre>
+    <p>valの中身を書き換えている</p>
+	<pre>0 to 2</pre>
+    <p>内部的には</p>
+	<pre>(0).to(2)</pre>
+    <p>パラメータが１つならドットと括弧を省略できる</p>
   </article>
 
   <article>
-    <h3>Use StringBuilder</h3>
-    <pre>
+    <h3>Step7</h3>
+    <h4>Scalaは全ての演算がメソッド</h4>
+	<pre>
+greetString(0) = "Hello"
+greetStrings.update(0, "Hello")</pre>
+	<pre>
+val numNames = Array("zero", "one", "two")
+val numNames2 = Array.apply("zero", "one", "two")</pre>
+    <p>上下で同じ意味</p>
+    <p>applyはArrayコンパニオンオブジェクトで定義されている</p>
+    <ul class="build">
+    <p>詳しくは4.3章</p>
+    </ul>
+  </article>
 
-public String statement() {
-    StringBuilder b = new StringBuilder(numItems() * LINE_WIDTH)
-    for (int i = 0; i &lt; numItem(i); i++)
-        b.append(lineForItem(i));
-    return b.toString();
+  <article class="title">
+  <h2 style="font-size:130%">リストを使う</h2>
+    <h3 class="subtitle">Step8</h3>
+  </article>
+
+  <article>
+    <h3>Step8</h3>
+    <h4>メソッドは副作用を持ってはいけない</h4>
+    <p>Array[String]は中身が変更できるからミュータブル</p>
+    <br><br>
+    <p>ScalaのListはイミュータブル</p>
+	<pre>
+val oneTwo = List(1, 2)
+val threeFour = List(3, 4)
+val oneTwoThreeFour = oneTwo ::: threeFour
+println(" " + oneTwo + " and " + threeFour + " were not mutated.")
+println("Thus, " + oneTwoThreeFour + " is a new list.")</pre>
+  </article>
+
+  <article>
+    <h3>Step8</h3>
+    <h4>よく使うCons</h4>
+    <br><br>
+	<pre>
+val twoThree = List(2, 3)
+val oneTwoThree = 1 :: twoThree
+println(oneTwoThree)</pre>
+    <p>メソッド名末尾がコロンの場合は右被演算子</p>
+  </article>
+
+  <article class="title">
+  <h2 style="font-size:130%">タプルを使う</h2>
+    <h3 class="subtitle">Step9</h3>
+  </article>
+
+  <article>
+    <h3>Step9</h3>
+    <h4>それは便利なコンテナオブジェクト</h4>
+    <br><br>
+	<pre>
+val pair = (99, "Luftballons")
+println(pair._1)
+println(pair._2)</pre>
+    <p>1から始まるのは静的に型付されたタプルの伝統</p>
+  </article>
+
+  <article class="title">
+  <h2 style="font-size:130%">集合とマップを使う</h2>
+    <h3 class="subtitle">Step10</h3>
+  </article>
+
+  <article>
+    <h3>Step10 Set</h3>
+    <h4>imutableなSet</h4>
+	<pre>
+var jetSet = Set("Boeing", "Airbus")
+jetSet += "Lear"
+println(jetSet.contains("Cessna"))</pre>
+    <p>内部的にはこうなってる</p>
+	<pre>jetSet = jetSet + "Lear"</pre>
+  </article>
+
+  <article>
+    <h3>Step10 Set</h3>
+    <h4>mutableなSet</h4>
+	<pre>
+import scala.collection.mutable.Set
+val movieSet = Set("Hitch", "Poltergeist")
+movieSet += "Shrek"
+println(movieSet)</pre>
+    <h4>HushSetが必要なら</h4>
+	<pre>
+import scala.collection.immutable.HashSet
+val hashSet = HashSet("Tomatoes", "Chilies")
+println(hashSet + "Coriander")</pre>
+  </article>
+
+  <article>
+    <h3>Step10 Map</h3>
+    <h4>mutableなMap</h4>
+	<pre>
+import scala.collection.mutable.Map
+val treasureMap = Map[Int, String]()
+treasureMap += (1 -> "Go to island.")
+treasureMap += (2 -> "Find big X on ground.")
+treasureMap += (1 -> "Dig.")
+println(treasureMap(2))</pre>
+    <p>下の二つは同じ意味</p>
+	<pre>
+1 -> "Go to island."
+(1).->("Go to island.")</pre>
+    <p>(1,"Go to island.")というタプルを返す</p>
+  </article>
+
+  <article>
+    <h3>Step10 Map</h3>
+    <br><br>
+    <h4>imutableなMap</h4>
+	<pre>
+val romanNumeral = Map (
+  1 -> "I", 2 -> "II", 3 -> "III", 4 -> "IV", 5 -> "V"
+)
+println(romanNumeral(4))</pre>
+  </article>
+
+  <article class="title">
+  <h2 style="font-size:130%">関数型のスタイルを見分ける</h2>
+    <h3 class="subtitle">Step11</h3>
+  </article>
+
+  <article>
+    <h3>Step11</h3>
+    <h4>varをなくそう</h4>
+	<pre>
+def printArgs(args: Array[String]): Unit = {
+  var i = 0
+  while (i < args.length){
+    println(args(i))
+    i += 1
+  }
+}</pre>
+    <p>どうする？</p>
+  </article>
+
+  <article>
+    <h3>Step11</h3>
+    <h4>varをなくした</h4>
+	<pre>
+def printArgs(args: Array[String]): Unit = {
+  for (arg -> args)
+    println(arg)
+}</pre>
+    <p>まだいける</p>
+	<pre>
+def printArgs(args: Array[String]): Unit = {
+  args.foreach(println)
+}</pre>
+  </article>
+
+  <article>
+    <h3>Step11</h3>
+    <h4>副作用をなくせ</h4>
+    <p>真の関数型は意味のある何かを産み出す</p>
+	<pre>
+def formatArgs(args: Array[String]) = args.mkString("¥n")
+
+println(formatArgs(args))</pre>
+    <p>副作用を持つコードを最小化することでテストしやすく</p>
+    <br><br>
+    <p>ただ、varが正しい場合もあるのでそのへんはバランス</p>
+  </article>
+
+  <article class="title">
+  <h2 style="font-size:130%">ファイルから行を読み出す</h2>
+    <h3 class="subtitle">Step12</h3>
+  </article>
+
+  <article>
+    <h3>Step12</h3>
+    <h4>とにかく読んでみる</h4>
+	<pre>
+import scala.io.Source
+
+if (args.length > 0) {
+  for (line <- Source.fromFile(args(0)).getLines)
+    println(line.length + " " + line)
 }
-	</pre>
-	<p>結合する数が多い場合はStringBuilderが圧倒的に速い</p>
-	<p>少ない場合はあまり意味ない場合もある</p>
-	<p>ThreadSafeにしたいときはStringBuffer</p>
-	<p>予め使う文字数で初期化しといたほうが速い</p>
-	<p>Let's see the <a href="https://github.com/wataru420/EffectiveJava/blob/master/src/part8/term51/Main3.java">sample</a>.</p>
+else 
+  Console.err.println("Please enter filename")</pre>
   </article>
 
-<!--
+  <article>
+    <h3>Step12</h3>
+    <h4>こんな風に出力したい</h4>
+	<pre>
+22 | import scala.io.Source
+ 0 |
+22 | if (args.length > 0) {
+49 |   for (line <- Source.fromFile(args(0)).getLines)
+39 |       println(line.length + " " + line)
+ 1 | }
+ 5 | else
+46 |   Console.err.println("Please enter filename")</pre>
+  </article>
+
+  <article>
+    <h3>Step12</h3>
+    <h4>じゃーーん</h4>
+	<pre>
+import scala.io.Source
+def widthOfLength(s: String) = s.length.toString.length
+if (args.length > 0) {
+  val lines = Source.fromFile(args(0)).getLines.toList
+  var maxWidth = 0
+  for (line <- lines)
+    maxWidth = maxWidth.max(widthOfLength(line))
+  for (line <- lines) {
+    val numSpaces = maxWidth - widthOfLength(line) //プリミス
+    val padding = " " * numSpaces
+    println(padding + line.length + " | " + line)
+  }
+}
+else
+  Console.err.println("Please enter filename")</pre>
+  </article>
+
+  <article>
+    <h3>Step12</h3>
+    <h4>もっと関数型に</h4>
+	<pre>
+import scala.io.Source
+def widthOfLength(s: String) = s.length.toString.length
+if (args.length > 0) {
+  val lines = Source.fromFile(args(0)).getLines.toList
+  val longestLine = lines.reduceLeft(
+    (a, b) => if (a.length > b.length) a else b
+  )
+  val maxWidth = widthOfLength(longestLine)
+  for (line <- lines) {
+    val numSpaces = maxWidth - widthOfLength(line) 
+    val padding = " " * numSpaces
+    println(padding + line.length + " | " + line)
+  }
+}
+else
+  Console.err.println("Please enter filename")</pre>
+  </article>
+
   <article class="title">
-  <h2 style="font-size:130%">InterfaceでObjectを参照する</h2>
+  <h2 style="font-size:200%">まとめ</h2>
+  </article>
+  
+  <article>
+    <h4>難しいけど面白い</h4>
+    <h4>魔法使い目指してがんばろう！</h4>
+    <a href="http://subtech.g.hatena.ne.jp/secondlife/20090701/1246418689" target="blank">
+    <img style="padding-left:50%;" src="http://cdn-ak.f.st-hatena.com/images/fotolife/k/kumajet/20090701/20090701122032.jpg"></a>
   </article>
 
 
-  <article class="title">
-  <h2 style="font-size:130%">ReflectionよりInterfaceを選ぶ</h2>
-  </article>
-
-
-  <article class="title">
-  <h2 style="font-size:130%">ネイティブメソッドを注意して使用する</h2>
-  </article>
-
-
-  <article class="title">
-  <h2 style="font-size:130%">注意して最適化する</h2>
-  </article>
-
-
-  <article class="title">
-  <h2 style="font-size:130%">一般的に受け入れらている命名規則を守る</h2>
-  </article>
-  -->
- 
   <article>
     <h3>The End</h3>
     <p>Wataru Fukunaga</p>
